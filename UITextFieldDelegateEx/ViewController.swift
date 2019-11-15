@@ -8,13 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var txtField: UITextField!
+    @IBOutlet weak var lblEntered: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        txtField.delegate = self
     }
 
-
+//    @IBAction func btnClick(_ sender: UIButton) {
+//        lblEntered.text = txtField.text
+//
+//    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        lblEntered.text = textField.text
+        
+        return true;
+    }
+    
 }
 
